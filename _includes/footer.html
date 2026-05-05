@@ -1,6 +1,43 @@
-<div class="beian-info" style="text-align: center; font-size: 13px; margin-top: 15px; color: #828282;">
-  <a href="https://beian.miit.gov.cn/" target="_blank" style="color: inherit;">{{ site.beian_icp }}</a>
-  <span style="margin: 0 10px;">|</span>
-  <img src="{{ '/assets/images/beian.png' | relative_url }}" style="width: 14px; vertical-align: middle;">
-  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode={{ site.beian_ga_id }}" target="_blank" style="color: inherit;">{{ site.beian_ga }}</a>
+<style>
+  .site-footer-info {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 15px;
+    color: #828282;
+  }
+  .site-footer-info__item {
+    display: inline-block;
+  }
+  .site-footer-info__item + .site-footer-info__item::before {
+    content: "|";
+    margin: 0 10px;
+    color: #828282;
+  }
+  .site-footer-info__item a { color: inherit; }
+  .site-footer-info__item img {
+    width: 14px;
+    vertical-align: middle;
+  }
+  @media (max-width: 600px) {
+    .site-footer-info__item {
+      display: block;
+      margin-top: 8px;
+    }
+    .site-footer-info__item + .site-footer-info__item::before {
+      content: none;
+      margin: 0;
+    }
+  }
+</style>
+<div class="site-footer-info">
+  <span class="site-footer-info__item">
+    管理员邮箱：<a href="mailto:{{ site.admin_email }}">{{ site.admin_email }}</a>
+  </span>
+  <span class="site-footer-info__item">
+    <a href="https://beian.miit.gov.cn/" target="_blank">{{ site.beian_icp }}</a>
+  </span>
+  <span class="site-footer-info__item">
+    <img src="{{ '/assets/images/beian.png' | relative_url }}">
+    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode={{ site.beian_ga_id }}" target="_blank">{{ site.beian_ga }}</a>
+  </span>
 </div>
