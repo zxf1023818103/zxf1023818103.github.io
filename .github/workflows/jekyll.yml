@@ -99,4 +99,11 @@ jobs:
         id: oss-deployment
         run: |
           aliyun oss sync _site/ oss://${{ secrets.ALIYUN_OSS_BUCKET }}/ -f --delete
-          
+
+      - name: Refresh Aliyun CDN
+        run: |
+          aliyun cdn RefreshObjectCaches \
+            --ObjectPath "https://${{ vars.ALIYUN_CDN_DOMAIN }}/" \
+            --ObjectType Directory \
+            --profile oss-deployer
+
